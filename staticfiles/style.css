@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+}
+.container .navbar{
+    width: 100%;
+    height: 80px;
+    background: #2274A5;
+}
+.navbar .maham{
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.navbar .maham a{
+    text-decoration: underline;
+    font-size: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: black;
+
+}
+.navbar .about{
+    color: #D5CABD;
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+
+.navbar .about img{
+    
+    display: flex;
+    height: 320px;
+    width: 250px;
+    margin-left: 70px;
+    margin-top: 50px;
+    padding-left: 0%;
+    border-radius: 30%;
+}
+.navbar .about h1{
+    color: #2274A5;
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: underline;
+
+}
+.navbar .about p {
+    color: #D5CABD;
+    text-align: right;
+    margin-left: 350px;
+    margin-right: 20px ;
+    margin-top: -300px;
+    width: auto;
+
+}
+.navbar ul{
+    float: right;
+    margin-right: 40px;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 8px;
+    line-height: 80px;
+}
+
+.navbar ul li a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 6px 13px;
+
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover{
+    background: yellowgreen;
+}
+
+.project{
+    background-color: gray;
+    width: auto;
+    padding: 30px;
+
+}
+.project img{
+    display: flex;
+        height: 400px;
+        width: 400px;
+        margin-left: 800px;
+        margin-top: -250px;
+        border-radius: 30%;
+}
+.project h1{
+    color: #2274A5;
+    text-align: center;
+    text-decoration: underline;
+}
+.project ul li{
+    margin-top: 80px;
+    margin-left: 200px;
+}
+.achievment{
+    background: black;
+}
+.achievment h1{
+    color: #2274A5;
+    text-align: center;
+    text-decoration: underline;
+}
+.achievment ul li{
+    color: aliceblue;
+    margin-left: 200px;
+    margin-top: 40px;
+    margin-right: 20px;
+}
+.contact{
+    background: grey;
+    width: auto;
+    padding: 30px;
+    text-align: center;
+    background-clip: black;
+}
+.contact .conta{
+    background:black ;
+    height: 320px;
+    width: 240px;
+    margin-left: 520px;
+    color: white;
+    margin-top: 80px;
+}
+
+.contact h1{
+     font-size: 50px;
+     text-decoration: underline;
+     color: #2274A5;
+}
+
+.links{
+    background: #2274A5;
+    width: auto;
+}
+
+.links ul li{
+    display: inline-block   ;
+}
+
+.links ul li a{
+    color: black;
+    font-size: 20px;
+    padding: 6px 120px;
+    display: inline-block;
+    text-decoration: none;
+    display: flex;
+
+}

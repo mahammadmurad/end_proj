@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="maham">
+            <a href="#">Mahammad Muradov</a>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>|</li>
+            <li><a href="#abo">About</a></li>
+            <li><a href="#proj">Projects</a></li>
+            <li><a href="#ach">Achievements</a></li>
+            <li><a href="#cont">Contact</a></li>
+        </ul>
+        <br><br>
+        <div class="about">
+            <h1 id="abo">About Me</h1>
+            <img src="{% static 'img/1.jpg' %}" alt="Professor">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur veniam quia ipsam cupiditate
+                impedit perferendis laboriosam provident culpa omnis fugiat assumenda labore quae velit, nesciunt
+                corporis nulla amet. Repudiandae possimus tempora excepturi inventore. Ullam minus nihil mollitia
+                fugiat, culpa earum praesentium repellat rem aspernatur eveniet incidunt corporis inventore facere quod
+                eum commodi cum neque, velit beatae. Iste quisquam repellat voluptate, iusto mollitia fuga quaerat enim.
+                Cumque atque magnam dolor cupiditate nesciunt voluptates facere veniam sed reiciendis aspernatur! Enim
+                molestiae rerum sapiente provident impedit dolores aliquid nihil, distinctio voluptatibus, asperiores
+                ipsa. Odit a quae pariatur unde praesentium facilis commodi culpa necessitatibus.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="project" id="proj">
+    <h1>Projects</h1>
+
+
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.message }}
+                <form method="POST" role="form" class="form-horizontal" name="message_id"
+                      action="{% url 'delete_comment' comment.pk %}">
+
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="submit" value="Delete" class="btn btn-light btn-radius btn-brd grd1">
+                        </div>
+                    </div>
+                </form>
+                <form method="POST" role="form" class="form-horizontal" name="message_id"
+                      action="{% url 'edit_comment' comment.pk %}">
+
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="submit" value="Edit" class="btn btn-light btn-radius btn-brd grd1">
+                        </div>
+                    </div>
+                </form>
+            </li>
+        {% endfor %}
+        <li>
+            <form method="POST" role="form" class="form-horizontal" action="{% url 'save_comments' %}">
+
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        {{ form.message }} <input type="submit" value="Submit"
+                                                  class="btn btn-light btn-radius btn-brd grd1">
+                    </div>
+                </div>
+            </form>
+        </li>
+    </ul>
+    <img src="{% static 'img/project.webp' %}" alt="">
+</div>
+
+<div class="achievment">
+    <h1 id="ach">Achievements</h1>
+    <ul>
+        {% for comment in comments_ach %}
+            <li>{{ comment.message }}</li>
+        {% endfor %}
+        <li>
+            <form method="POST" role="form" class="form-horizontal" action="{% url 'save_comments_ach' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        {{ form_ach.message }} <input type="submit" value="Submit"
+                                                      class="btn btn-light btn-radius btn-brd grd1">
+                    </div>
+                </div>
+            </form>
+        </li>
+    </ul>
+</div>
+
+<div class="contact offset-xl-3 col-xl-6 col-md-12 col-sm-12">
+    <h1 id="cont">Contact</h1>
+    <div class="conta">
+        <br> <br>
+        <form method="POST" action="{% url 'save_contacts' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="col-sm-12">
+                    {{ contacts_form.name }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    {{ contacts_form.email }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    {{ contacts_form.number }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    {{ contacts_form.message }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="submit" value="Submit" class="btn btn-light btn-radius btn-brd grd1">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="links">
+    <ul>
+        <li><a href="https://www.linkedin.com/in/mahammad-muradov-aa7666139/" target="_blank">Linkedin</a></li>
+        <li><a href="#">Github</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Email</a></li>
+    </ul>
+</div>
+
+</body>
+</html>
