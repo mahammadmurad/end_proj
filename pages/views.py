@@ -32,8 +32,8 @@ def save_comments(request):
     form = ProjectForm(data=request.POST)
 
     if form.is_valid():
-        comment = form.save(commit=False)
-        comment.save()
+        comment_save = form.save(commit=False)
+        comment_save.save()
         # subject = 'Comment added'
         # body = {
         #     'message': form.cleaned_data['message']
@@ -47,15 +47,15 @@ def save_comments(request):
     return redirect('index')
 
 @require_http_methods(["POST"])
-def delete_comment(request, pk):
-    comment = Project.objects.get(id=pk)
-    comment.delete()
+def delete_project(request, pk):
+    project = Project.objects.get(id=pk)
+    project.delete()
     return redirect('index')
 
 @require_http_methods(["POST"])
 def edit_comment(request, pk):
-    comment = Project.objects.get(id=pk)
-    comment.c
+    # comment_edit = Project.objects.get(id=pk)
+    # comment_edit.c
     return redirect('index')
 
 
@@ -66,8 +66,8 @@ def save_comments_ach(request):
     # print(f'Your commont {h}')
     form_ach = AchievementForm(data=request.POST)
     if form_ach.is_valid():
-        comment_ach = form_ach.save(commit=False)
-        comment_ach.save()
+        comment_ach_save = form_ach.save(commit=False)
+        comment_ach_save.save()
         # subject = 'Comment added'
         # body = {
         #     'message': form_ach.cleaned_data['message']
