@@ -47,37 +47,26 @@
 
 
     <ul>
-        {% for comment in comments %}
-            <li>{{ comment.message }}
-                <form method="POST" role="form" class="form-horizontal" name="message_id"
-                      action="{% url 'delete_comment' comment.pk %}">
-
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <input type="submit" value="Delete" class="btn btn-light btn-radius btn-brd grd1">
+        {% for project in projects %}
+            <li>{{ project.message }}
+                <a href="{% url 'edit_project' project.pk %}">Edit</a>
+                <form method="POST" role="form" class="form-horizontal"  action="{% url 'delete_project' project.pk %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="submit" value="Delete" class="btn btn-light btn-radius btn-brd grd1">
+                            </div>
                         </div>
-                    </div>
-                </form>
-                <form method="POST" role="form" class="form-horizontal" name="message_id"
-                      action="{% url 'edit_comment' comment.pk %}">
-
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <input type="submit" value="Edit" class="btn btn-light btn-radius btn-brd grd1">
-                        </div>
-                    </div>
                 </form>
             </li>
         {% endfor %}
         <li>
-            <form method="POST" role="form" class="form-horizontal" action="{% url 'save_comments' %}">
+            <form method="POST" role="form" class="form-horizontal" action="{% url 'save_projects' %}">
 
                 {% csrf_token %}
                 <div class="form-group">
                     <div class="col-sm-12">
-                        {{ form.message }} <input type="submit" value="Submit"
+                        {{ form_proj.message }} <input type="submit" value="Submit"
                                                   class="btn btn-light btn-radius btn-brd grd1">
                     </div>
                 </div>
@@ -90,11 +79,11 @@
 <div class="achievment">
     <h1 id="ach">Achievements</h1>
     <ul>
-        {% for comment in comments_ach %}
-            <li>{{ comment.message }}</li>
+        {% for achievement in achievements %}
+            <li>{{ achievement.message }}</li>
         {% endfor %}
         <li>
-            <form method="POST" role="form" class="form-horizontal" action="{% url 'save_comments_ach' %}">
+            <form method="POST" role="form" class="form-horizontal" action="{% url 'save_achievements' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <div class="col-sm-12">
